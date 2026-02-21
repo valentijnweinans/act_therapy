@@ -180,7 +180,6 @@ strong {
 .scroll-container {
     height: 100dvh;
     overflow-y: scroll;
-    scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
 
     /* Hide scrollbar for cleaner look */
@@ -202,13 +201,14 @@ strong {
 }
 
 .section {
-    height: 100dvh;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
     display: flex;
     flex-direction: column;
     position: relative;
-    overflow: hidden;
+    background: linear-gradient(
+        160deg,
+        var(--white) 0%,
+        rgba(152, 160, 134, 0.4) 100%
+    );
 }
 
 .section-inner {
@@ -244,7 +244,7 @@ strong {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 100;
+    z-index: 201;
     height: var(--header-height);
     background: linear-gradient(
         to right,
@@ -260,10 +260,19 @@ strong {
         rgba(122, 133, 104, 0.96) 0%,
         rgba(152, 160, 134, 0.96) 100%
     );
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     box-shadow: 0 2px 16px rgba(122, 133, 104, 0.3);
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* backdrop-filter op ::before zodat position:fixed children niet geclipt worden */
+.site-header.scrolled::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    pointer-events: none;
+    z-index: -1;
 }
 
 .header-inner {
@@ -291,7 +300,7 @@ strong {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    z-index: 101;
+    z-index: 201;
     padding: 8px;
     margin-right: -8px;
 }
@@ -304,7 +313,12 @@ strong {
     border-radius: 1px;
     transition:
         transform var(--transition-base),
-        opacity var(--transition-fast);
+        opacity var(--transition-fast),
+        background-color var(--transition-fast);
+}
+
+.menu-toggle.active .hamburger-line {
+    background-color: var(--sage-dark);
 }
 
 .menu-toggle.active .hamburger-line:nth-child(1) {
@@ -323,7 +337,8 @@ strong {
 .main-nav {
     position: fixed;
     inset: 0;
-    background-color: var(--white);
+    z-index: 200;
+    background-color: rgba(240, 233, 222, 0.75);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -337,6 +352,16 @@ strong {
 .main-nav.open {
     opacity: 1;
     visibility: visible;
+}
+
+/* Blur de pagina-inhoud als het menu open is */
+.menu-open .scroll-container {
+    filter: blur(6px);
+    transition: filter var(--transition-slow);
+}
+
+.scroll-container {
+    transition: filter var(--transition-slow);
 }
 
 .nav-list {
@@ -379,13 +404,12 @@ strong {
 .main-nav.open .nav-list li:nth-child(4) .nav-link {
     transition-delay: 340ms;
 }
+.main-nav.open .nav-list li:nth-child(5) .nav-link {
+    transition-delay: 420ms;
+}
 
 .nav-link:hover,
 .nav-link.active {
-    color: var(--rose);
-}
-
-.nav-link--cta {
     color: var(--rose);
 }
 
@@ -432,6 +456,7 @@ strong {
    7. HERO SECTION
 =========================================== */
 .section--hero {
+    min-height: 100dvh;
     background: linear-gradient(
         160deg,
         var(--white) 0%,
@@ -585,7 +610,8 @@ strong {
     margin: 0 auto var(--space-md);
     align-items: center;
     gap: var(--space-sm);
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
+    text-transform: uppercase;
     font-size: clamp(1.3rem, 3vw, 1.9rem);
     font-weight: 600;
     color: var(--sage-dark);
@@ -613,42 +639,8 @@ strong {
 }
 
 /* Alternating section backgrounds */
-.section--behandelingen {
-    background: linear-gradient(
-        170deg,
-        var(--white) 0%,
-        rgba(152, 160, 134, 0.12) 100%
-    );
-}
-
-.section--over-mij {
-    background: linear-gradient(
-        170deg,
-        rgba(152, 160, 134, 0.16) 0%,
-        var(--white) 100%
-    );
-}
-
-.section--praktisch {
-    background: linear-gradient(
-        170deg,
-        var(--white) 0%,
-        rgba(152, 160, 134, 0.14) 100%
-    );
-}
-
-.section--contact {
-    background: linear-gradient(170deg, var(--off-white) 0%, var(--cream) 100%);
-}
-
 .section--kwaliteit {
-    background: linear-gradient(
-        170deg,
-        rgba(152, 160, 134, 0.14) 0%,
-        var(--white) 100%
-    );
     min-height: auto;
-    scroll-snap-align: start;
 }
 
 /* ===========================================
@@ -782,22 +774,19 @@ strong {
 
 .traject-step {
     position: relative;
-    padding: var(--space-md) 0 var(--space-lg) var(--space-lg);
-    border-left: 2px solid var(--sage-light);
+    padding: var(--space-md) 0 var(--space-lg) 2.5rem;
+    border-left: 3px solid var(--rose);
 }
 
-.traject-step:last-child {
-    border-left-color: transparent;
-}
-
+/* Bolletje — gecentreerd op de verticale lijn */
 .traject-step::before {
     content: attr(data-step);
     position: absolute;
-    left: calc(-0.5rem - var(--space-xl));
+    left: calc(-1rem - 1px);
     top: var(--space-md);
     width: 2rem;
     height: 2rem;
-    background-color: var(--sage);
+    background-color: var(--rose);
     color: var(--white);
     border-radius: 50%;
     display: flex;
@@ -805,6 +794,27 @@ strong {
     justify-content: center;
     font-size: 0.75rem;
     font-weight: 700;
+    z-index: 1;
+}
+
+/* Lijn begint bij midden van bolletje 1 (niet erboven) */
+.traject-step:first-child {
+    border-image: linear-gradient(
+            to bottom,
+            transparent calc(var(--space-md) + 1rem),
+            var(--rose) calc(var(--space-md) + 1rem)
+        )
+        1;
+}
+
+/* Lijn eindigt bij midden van bolletje 5 (niet eronder) */
+.traject-step:last-child {
+    border-image: linear-gradient(
+            to bottom,
+            var(--rose) calc(var(--space-md) + 1rem),
+            transparent calc(var(--space-md) + 1rem)
+        )
+        1;
 }
 
 .traject-step h4 {
@@ -847,10 +857,6 @@ strong {
     flex: 1;
 }
 
-.over-mij-content .section-intro {
-    margin: 0 0 var(--space-xl) 0;
-    max-width: none;
-}
 
 /* ===========================================
    11. PRAKTISCH SECTION
@@ -863,12 +869,13 @@ strong {
 .contact-layout {
     display: flex;
     flex-direction: column;
-    gap: var(--space-xl);
+    gap: var(--space-lg);
 }
 
-.contact-info .section-intro {
-    margin: 0 0 var(--space-lg) 0;
-    max-width: none;
+.contact-notices {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
 }
 
 /* Notice cards */
@@ -984,7 +991,6 @@ strong {
         var(--sage-light) 100%
     );
     color: var(--white);
-    scroll-snap-align: end;
 }
 
 .footer-inner {
@@ -1168,18 +1174,15 @@ strong {
         align-items: flex-start;
     }
 
-    /* Labels links uitlijnen in zij-aan-zij layouts */
-    .over-mij-content .section-label,
-    .contact-info .section-label {
-        margin-left: 0;
+    .contact-form-wrapper {
+        flex: 2;
     }
 
-    .contact-info,
-    .contact-form-wrapper {
+    .contact-notices {
         flex: 1;
     }
 
-    /* Praktisch en Kwaliteit twee kolommen */
+/* Praktisch en Kwaliteit twee kolommen */
     .content-group--two-col,
     .content-group--compact {
         display: grid;
@@ -1244,22 +1247,6 @@ strong {
     .nav-link:hover::after,
     .nav-link.active::after {
         width: 100%;
-    }
-
-    .nav-link--cta {
-        background-color: var(--rose);
-        color: var(--white);
-        padding: 0.5rem 1.25rem;
-        border-radius: 100px;
-    }
-
-    .nav-link--cta:hover {
-        background-color: var(--rose-dark);
-        color: var(--white);
-    }
-
-    .nav-link--cta::after {
-        display: none;
     }
 
     /* Hero side by side */

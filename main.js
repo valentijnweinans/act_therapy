@@ -253,32 +253,40 @@ function initNavigation() {
     const mainNav = document.getElementById('mainNav');
     const navLinks = document.querySelectorAll('.nav-link');
 
+    function openMenu() {
+        mainNav.classList.add('open');
+        menuToggle.classList.add('active');
+        menuToggle.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('menu-open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+        mainNav.classList.remove('open');
+        menuToggle.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
+        document.body.style.overflow = '';
+    }
+
     // Hamburger menu toggle
     menuToggle.addEventListener('click', () => {
-        const isOpen = mainNav.classList.contains('open');
-        mainNav.classList.toggle('open');
-        menuToggle.classList.toggle('active');
-        menuToggle.setAttribute('aria-expanded', !isOpen);
-        document.body.style.overflow = isOpen ? '' : 'hidden';
+        if (mainNav.classList.contains('open')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
     });
 
     // Sluit menu bij klik op een link
     navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mainNav.classList.remove('open');
-            menuToggle.classList.remove('active');
-            menuToggle.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
-        });
+        link.addEventListener('click', closeMenu);
     });
 
     // Sluit menu met Escape toets
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && mainNav.classList.contains('open')) {
-            mainNav.classList.remove('open');
-            menuToggle.classList.remove('active');
-            menuToggle.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
+            closeMenu();
         }
     });
 }
@@ -338,9 +346,11 @@ function initSmoothScroll() {
             const target = document.getElementById(targetId);
 
             if (target) {
-                const targetTop = target.offsetTop - scrollContainer.offsetTop;
+                const containerRect = scrollContainer.getBoundingClientRect();
+                const targetRect = target.getBoundingClientRect();
+                const scrollTop = scrollContainer.scrollTop + targetRect.top - containerRect.top;
                 scrollContainer.scrollTo({
-                    top: targetTop,
+                    top: scrollTop,
                     behavior: 'smooth'
                 });
             }

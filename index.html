@@ -73,9 +73,17 @@
                         <li>
                             <a
                                 href="#contact"
-                                class="nav-link nav-link--cta"
+                                class="nav-link"
                                 data-section="contact"
                                 ><span data-content="nav-contact"></span
+                            ></a>
+                        </li>
+                        <li>
+                            <a
+                                href="#kwaliteit"
+                                class="nav-link"
+                                data-section="kwaliteit"
+                                ><span data-content="nav-kwaliteit"></span
                             ></a>
                         </li>
                     </ul>
@@ -141,6 +149,15 @@
                             class="tab active"
                             role="tab"
                             aria-selected="true"
+                            data-tab="traject"
+                        >
+                            <i data-lucide="route" class="tab-icon"></i>
+                            <span data-content="tab-traject"></span>
+                        </button>
+                        <button
+                            class="tab"
+                            role="tab"
+                            aria-selected="false"
                             data-tab="voor-wie"
                         >
                             <i data-lucide="users" class="tab-icon"></i>
@@ -155,20 +172,24 @@
                             <i data-lucide="sparkles" class="tab-icon"></i>
                             <span data-content="tab-methoden"></span>
                         </button>
-                        <button
-                            class="tab"
-                            role="tab"
-                            aria-selected="false"
-                            data-tab="traject"
-                        >
-                            <i data-lucide="route" class="tab-icon"></i>
-                            <span data-content="tab-traject"></span>
-                        </button>
+                    </div>
+
+                    <!-- Tab: Traject -->
+                    <div
+                        class="tab-panel active"
+                        id="panel-traject"
+                        data-tab-panel="traject"
+                        role="tabpanel"
+                    >
+                        <div
+                            class="traject-steps"
+                            data-content="behandelingen-traject"
+                        ></div>
                     </div>
 
                     <!-- Tab: Voor wie -->
                     <div
-                        class="tab-panel active"
+                        class="tab-panel"
                         id="panel-voor-wie"
                         data-tab-panel="voor-wie"
                         role="tabpanel"
@@ -202,25 +223,25 @@
                             data-content="behandelingen-methoden"
                         ></div>
                     </div>
-
-                    <!-- Tab: Traject -->
-                    <div
-                        class="tab-panel"
-                        id="panel-traject"
-                        data-tab-panel="traject"
-                        role="tabpanel"
-                    >
-                        <div
-                            class="traject-steps"
-                            data-content="behandelingen-traject"
-                        ></div>
-                    </div>
                 </div>
             </section>
 
             <!-- ====== OVER MIJ SECTION ====== -->
             <section class="section section--over-mij" id="over-mij">
                 <div class="section-inner section-inner--scrollable container">
+                    <div class="section-header">
+                        <p class="section-label">
+                            <i
+                                data-lucide="hand-heart"
+                                class="section-icon"
+                            ></i>
+                            <span data-content="over-mij-titel"></span>
+                        </p>
+                        <p
+                            class="section-intro"
+                            data-content="over-mij-intro"
+                        ></p>
+                    </div>
                     <div class="over-mij-layout">
                         <div class="over-mij-image">
                             <img
@@ -230,18 +251,6 @@
                             />
                         </div>
                         <div class="over-mij-content">
-                            <p class="section-label">
-                                <i
-                                    data-lucide="hand-heart"
-                                    class="section-icon"
-                                ></i>
-                                <span data-content="over-mij-titel"></span>
-                            </p>
-                            <p
-                                class="section-intro"
-                                data-content="over-mij-intro"
-                            ></p>
-
                             <div
                                 class="content-group"
                                 data-content="over-mij-accordion"
@@ -282,46 +291,18 @@
             <!-- ====== CONTACT SECTION ====== -->
             <section class="section section--contact" id="contact">
                 <div class="section-inner section-inner--scrollable container">
+                    <div class="section-header">
+                        <p class="section-label">
+                            <i data-lucide="mail" class="section-icon"></i>
+                            <span data-content="contact-titel"></span>
+                        </p>
+                        <p
+                            class="section-intro"
+                            data-content="contact-intro"
+                        ></p>
+                    </div>
+
                     <div class="contact-layout">
-                        <div class="contact-info">
-                            <p class="section-label">
-                                <i data-lucide="mail" class="section-icon"></i>
-                                <span data-content="contact-titel"></span>
-                            </p>
-                            <p
-                                class="section-intro"
-                                data-content="contact-intro"
-                            ></p>
-
-                            <div
-                                class="contact-notice contact-notice--positive"
-                            >
-                                <i data-lucide="clock" class="notice-icon"></i>
-                                <p data-content="contact-wachttijd"></p>
-                            </div>
-
-                            <div class="contact-notice">
-                                <i
-                                    data-lucide="phone-off"
-                                    class="notice-icon"
-                                ></i>
-                                <p data-content="contact-bereikbaarheid"></p>
-                            </div>
-
-                            <div class="contact-notice contact-notice--warning">
-                                <i
-                                    data-lucide="alert-triangle"
-                                    class="notice-icon"
-                                ></i>
-                                <div>
-                                    <strong
-                                        data-content="contact-crisis-titel"
-                                    ></strong>
-                                    <p data-content="contact-crisis"></p>
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="contact-form-wrapper">
                             <form
                                 class="contact-form"
@@ -391,6 +372,36 @@
                                     ></span>
                                 </button>
                             </form>
+                        </div>
+
+                        <div class="contact-notices">
+                            <div
+                                class="contact-notice contact-notice--positive"
+                            >
+                                <i data-lucide="clock" class="notice-icon"></i>
+                                <p data-content="contact-wachttijd"></p>
+                            </div>
+
+                            <div class="contact-notice">
+                                <i
+                                    data-lucide="phone-off"
+                                    class="notice-icon"
+                                ></i>
+                                <p data-content="contact-bereikbaarheid"></p>
+                            </div>
+
+                            <div class="contact-notice contact-notice--warning">
+                                <i
+                                    data-lucide="alert-triangle"
+                                    class="notice-icon"
+                                ></i>
+                                <div>
+                                    <strong
+                                        data-content="contact-crisis-titel"
+                                    ></strong>
+                                    <p data-content="contact-crisis"></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

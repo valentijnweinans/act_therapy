@@ -44,8 +44,8 @@ var SITE_CONTENT = {
        NAVIGATIE — Links in het menu
        ================== */
   nav: {
-    heading: "Title",
-    behandelingen: "Behandelingen",
+    heading: "ACT Therapie",
+    behandelingen: "Behandeling",
     overMij: "Over mij",
     praktisch: "Praktisch",
     contact: "Contact",
@@ -74,7 +74,7 @@ var SITE_CONTENT = {
        BEHANDELINGEN — Het tabblad-gedeelte met Voor wie, Methoden en Traject
        ================== */
   behandelingen: {
-    titel: "Behandelingen",
+    titel: "Behandeling",
     intro:
       "Hoe kan ik je helpen? \n Iedereen loopt wel eens vast.Soms helpt het om samen te kijken naar wat er speelt en wat je nodig hebt om weer verder te komen.",
 
