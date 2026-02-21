@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="nl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Anne Weinans — Praktijk voor Psychosociale ACT Therapie en Coaching. Een veilige plek om stil te staan, te ontdekken en te groeien."
+        />
+        <title>Anne Weinans — Psychosociale ACT Therapie & Coaching</title>
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Nunito:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Lucide Icons -->
+        <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <!-- ============================================
+         NAVIGATION
+    ============================================= -->
+        <header class="site-header" id="siteHeader">
+            <div class="header-inner container">
+                <a href="#hero" class="site-logo">
+                    <span class="logo-name" data-content="nav-heading"></span>
+                </a>
+
+                <button
+                    class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Menu openen"
+                    aria-expanded="false"
+                >
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+
+                <nav class="main-nav" id="mainNav" aria-label="Hoofdnavigatie">
+                    <ul class="nav-list">
+                        <li>
+                            <a
+                                href="#behandelingen"
+                                class="nav-link"
+                                data-section="behandelingen"
+                                ><span data-content="nav-behandelingen"></span
+                            ></a>
+                        </li>
+                        <li>
+                            <a
+                                href="#over-mij"
+                                class="nav-link"
+                                data-section="over-mij"
+                                ><span data-content="nav-over-mij"></span
+                            ></a>
+                        </li>
+                        <li>
+                            <a
+                                href="#praktisch"
+                                class="nav-link"
+                                data-section="praktisch"
+                                ><span data-content="nav-praktisch"></span
+                            ></a>
+                        </li>
+                        <li>
+                            <a
+                                href="#contact"
+                                class="nav-link nav-link--cta"
+                                data-section="contact"
+                                ><span data-content="nav-contact"></span
+                            ></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- ============================================
+         MAIN SCROLL CONTAINER
+    ============================================= -->
+        <main class="scroll-container" id="scrollContainer">
+            <!-- ====== HERO SECTION ====== -->
+            <section class="section section--hero" id="hero">
+                <div class="hero-content container">
+                    <p class="hero-label" data-content="hero-label">
+                        Psychosociale Therapie & Coaching
+                    </p>
+                    <div class="hero-image">
+                        <img
+                            src="img/hero.png"
+                            alt="Foto van Anne Weinans"
+                            class="hero-photo"
+                        />
+                    </div>
+                    <div class="hero-text">
+                        <h1 class="hero-title" data-content="hero-titel">
+                            <span
+                                class="hero-name"
+                                data-content="hero-naam"
+                            ></span>
+                        </h1>
+                        <p class="hero-intro" data-content="hero-intro"></p>
+                        <a href="#contact" class="btn btn--primary"
+                            ><span data-content="hero-cta"></span
+                        ></a>
+                    </div>
+                </div>
+                <div class="scroll-indicator" aria-hidden="true">
+                    <i data-lucide="chevron-down"></i>
+                </div>
+            </section>
+
+            <!-- ====== BEHANDELINGEN SECTION ====== -->
+            <section class="section section--behandelingen" id="behandelingen">
+                <div class="section-inner section-inner--scrollable container">
+                    <div class="section-header">
+                        <p class="section-label">
+                            <i
+                                data-lucide="heart-handshake"
+                                class="section-icon"
+                            ></i>
+                            <span data-content="behandelingen-titel"></span>
+                        </p>
+                        <p
+                            class="section-intro"
+                            data-content="behandelingen-intro"
+                        ></p>
+                    </div>
+
+                    <!-- Behandelingen Tabs -->
+                    <div class="tabs" role="tablist">
+                        <button
+                            class="tab active"
+                            role="tab"
+                            aria-selected="true"
+                            data-tab="voor-wie"
+                        >
+                            <i data-lucide="users" class="tab-icon"></i>
+                            <span data-content="tab-voor-wie"></span>
+                        </button>
+                        <button
+                            class="tab"
+                            role="tab"
+                            aria-selected="false"
+                            data-tab="methoden"
+                        >
+                            <i data-lucide="sparkles" class="tab-icon"></i>
+                            <span data-content="tab-methoden"></span>
+                        </button>
+                        <button
+                            class="tab"
+                            role="tab"
+                            aria-selected="false"
+                            data-tab="traject"
+                        >
+                            <i data-lucide="route" class="tab-icon"></i>
+                            <span data-content="tab-traject"></span>
+                        </button>
+                    </div>
+
+                    <!-- Tab: Voor wie -->
+                    <div
+                        class="tab-panel active"
+                        id="panel-voor-wie"
+                        data-tab-panel="voor-wie"
+                        role="tabpanel"
+                    >
+                        <div
+                            class="voor-wie-content"
+                            data-content="behandelingen-voor-wie"
+                        ></div>
+                        <div class="voor-wie-niet">
+                            <h3>
+                                <i data-lucide="info" class="inline-icon"></i>
+                                <span
+                                    data-content="behandelingen-voor-wie-niet-titel"
+                                ></span>
+                            </h3>
+                            <div
+                                data-content="behandelingen-voor-wie-niet"
+                            ></div>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Methoden -->
+                    <div
+                        class="tab-panel"
+                        id="panel-methoden"
+                        data-tab-panel="methoden"
+                        role="tabpanel"
+                    >
+                        <div
+                            class="methoden-grid"
+                            data-content="behandelingen-methoden"
+                        ></div>
+                    </div>
+
+                    <!-- Tab: Traject -->
+                    <div
+                        class="tab-panel"
+                        id="panel-traject"
+                        data-tab-panel="traject"
+                        role="tabpanel"
+                    >
+                        <div
+                            class="traject-steps"
+                            data-content="behandelingen-traject"
+                        ></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ====== OVER MIJ SECTION ====== -->
+            <section class="section section--over-mij" id="over-mij">
+                <div class="section-inner section-inner--scrollable container">
+                    <div class="over-mij-layout">
+                        <div class="over-mij-image">
+                            <img
+                                src="img/over_mij.png"
+                                alt="Foto van Anne Weinans"
+                                class="over-mij-photo"
+                            />
+                        </div>
+                        <div class="over-mij-content">
+                            <p class="section-label">
+                                <i
+                                    data-lucide="hand-heart"
+                                    class="section-icon"
+                                ></i>
+                                <span data-content="over-mij-titel"></span>
+                            </p>
+                            <p
+                                class="section-intro"
+                                data-content="over-mij-intro"
+                            ></p>
+
+                            <div
+                                class="content-group"
+                                data-content="over-mij-accordion"
+                            >
+                                <!-- Inhoud wordt geladen vanuit content.js -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ====== PRAKTISCH SECTION ====== -->
+            <section class="section section--praktisch" id="praktisch">
+                <div class="section-inner section-inner--scrollable container">
+                    <div class="section-header">
+                        <p class="section-label">
+                            <i
+                                data-lucide="clipboard-list"
+                                class="section-icon"
+                            ></i>
+                            <span data-content="praktisch-titel"></span>
+                        </p>
+                        <p
+                            class="section-intro"
+                            data-content="praktisch-intro"
+                        ></p>
+                    </div>
+
+                    <div
+                        class="content-group content-group--two-col"
+                        data-content="praktisch-accordion"
+                    >
+                        <!-- Inhoud wordt geladen vanuit content.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- ====== CONTACT SECTION ====== -->
+            <section class="section section--contact" id="contact">
+                <div class="section-inner section-inner--scrollable container">
+                    <div class="contact-layout">
+                        <div class="contact-info">
+                            <p class="section-label">
+                                <i data-lucide="mail" class="section-icon"></i>
+                                <span data-content="contact-titel"></span>
+                            </p>
+                            <p
+                                class="section-intro"
+                                data-content="contact-intro"
+                            ></p>
+
+                            <div
+                                class="contact-notice contact-notice--positive"
+                            >
+                                <i data-lucide="clock" class="notice-icon"></i>
+                                <p data-content="contact-wachttijd"></p>
+                            </div>
+
+                            <div class="contact-notice">
+                                <i
+                                    data-lucide="phone-off"
+                                    class="notice-icon"
+                                ></i>
+                                <p data-content="contact-bereikbaarheid"></p>
+                            </div>
+
+                            <div class="contact-notice contact-notice--warning">
+                                <i
+                                    data-lucide="alert-triangle"
+                                    class="notice-icon"
+                                ></i>
+                                <div>
+                                    <strong
+                                        data-content="contact-crisis-titel"
+                                    ></strong>
+                                    <p data-content="contact-crisis"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-form-wrapper">
+                            <form
+                                class="contact-form"
+                                id="contactForm"
+                                action="#"
+                                method="POST"
+                            >
+                                <div class="form-group">
+                                    <label for="naam"
+                                        ><span
+                                            data-content="contact-veld-naam"
+                                        ></span>
+                                        <span class="required">*</span></label
+                                    >
+                                    <input
+                                        type="text"
+                                        id="naam"
+                                        name="naam"
+                                        required
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label for="email"
+                                        ><span
+                                            data-content="contact-veld-email"
+                                        ></span>
+                                        <span class="required">*</span></label
+                                    >
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        required
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label for="telefoon"
+                                        ><span
+                                            data-content="contact-veld-telefoon"
+                                        ></span
+                                    ></label>
+                                    <input
+                                        type="tel"
+                                        id="telefoon"
+                                        name="telefoon"
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label for="bericht"
+                                        ><span
+                                            data-content="contact-veld-bericht"
+                                        ></span
+                                    ></label>
+                                    <textarea
+                                        id="bericht"
+                                        name="bericht"
+                                        rows="4"
+                                    ></textarea>
+                                </div>
+                                <button
+                                    type="submit"
+                                    class="btn btn--primary btn--full"
+                                >
+                                    <i data-lucide="send" class="btn-icon"></i>
+                                    <span
+                                        data-content="contact-versturen"
+                                    ></span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ====== KWALITEIT SECTION (compact) ====== -->
+            <section class="section section--kwaliteit" id="kwaliteit">
+                <div class="section-inner section-inner--scrollable container">
+                    <div class="section-header">
+                        <p class="section-label">
+                            <i
+                                data-lucide="shield-check"
+                                class="section-icon"
+                            ></i>
+                            <span data-content="kwaliteit-titel"></span>
+                        </p>
+                        <p
+                            class="section-intro"
+                            data-content="kwaliteit-intro"
+                        ></p>
+                    </div>
+
+                    <div
+                        class="content-group content-group--compact"
+                        data-content="kwaliteit-accordion"
+                    >
+                        <!-- Inhoud wordt geladen vanuit content.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- ====== FOOTER ====== -->
+            <footer class="site-footer" id="footer">
+                <div class="footer-inner container">
+                    <div class="footer-brand">
+                        <span
+                            class="logo-name logo-name--footer"
+                            data-content="hero-naam"
+                        ></span>
+                        <p
+                            class="footer-tagline"
+                            data-content="footer-tagline"
+                        ></p>
+                    </div>
+                    <div class="footer-links">
+                        <a href="#behandelingen"
+                            ><span data-content="nav-behandelingen"></span
+                        ></a>
+                        <a href="#over-mij"
+                            ><span data-content="nav-over-mij"></span
+                        ></a>
+                        <a href="#praktisch"
+                            ><span data-content="nav-praktisch"></span
+                        ></a>
+                        <a href="#contact"
+                            ><span data-content="nav-contact"></span
+                        ></a>
+                        <a href="#kwaliteit"
+                            ><span data-content="nav-kwaliteit"></span
+                        ></a>
+                    </div>
+                    <p class="footer-copy">
+                        &copy; <span id="currentYear"></span>
+                        <span data-content="hero-naam"></span>.
+                        <span data-content="footer-copyright"></span>
+                    </p>
+                </div>
+            </footer>
+        </main>
+
+        <!-- Scripts: content.js MOET voor main.js geladen worden -->
+        <script src="content.js" type="text/javascript"></script>
+        <script>
+            // Controle of content.js correct geladen is
+            if (typeof SITE_CONTENT === "undefined") {
+                document.body.innerHTML =
+                    '<div style="padding:2rem;font-family:sans-serif;color:#846044;">' +
+                    "<h2>⚠️ content.js kon niet geladen worden</h2>" +
+                    "<p>Controleer of <strong>content.js</strong> in dezelfde map staat als index.html.</p>" +
+                    "<p>Bestanden nodig in dezelfde map: <code>index.html</code>, <code>content.js</code>, <code>main.js</code>, <code>styles.css</code></p>" +
+                    "</div>";
+            }
+        </script>
+        <script src="main.js" type="text/javascript"></script>
+    </body>
+</html>
