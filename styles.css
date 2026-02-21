@@ -213,8 +213,8 @@ strong {
 
 .section-inner {
     width: 100%;
-    padding: calc(var(--header-height) + var(--space-lg)) var(--space-lg)
-        var(--space-xl);
+    padding: calc(var(--header-height) + var(--space-md)) var(--space-md)
+        var(--space-lg);
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -459,11 +459,11 @@ strong {
 }
 
 .hero-content {
-    padding: calc(var(--header-height) + var(--space-xl)) var(--space-lg)
-        var(--space-xl);
+    padding: calc(var(--header-height) + var(--space-md)) var(--space-md)
+        var(--space-md);
     display: flex;
     flex-direction: column;
-    gap: var(--space-xl);
+    gap: var(--space-md);
     align-items: center;
     text-align: center;
     position: relative;
@@ -483,7 +483,7 @@ strong {
 .hero-name {
     display: block;
     font-family: var(--font-accent);
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-size: clamp(2rem, 8vw, 4.5rem);
     font-weight: 600;
     color: var(--darkbrown);
     line-height: 1.1;
@@ -495,23 +495,26 @@ strong {
 }
 
 .hero-intro {
-    font-size: 1.05rem;
+    font-size: 0.92rem;
     color: var(--text-medium);
     max-width: 500px;
-    margin-bottom: var(--space-lg);
-    line-height: 1.7;
+    margin-bottom: var(--space-md);
+    line-height: 1.6;
 }
 
 .hero-image {
     width: 100%;
     max-width: 300px;
+    max-height: 170px;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
 }
 
 .hero-photo {
     width: 100%;
-    aspect-ratio: 3 / 4;
+    height: 170px;
     object-fit: cover;
-    border-radius: var(--border-radius-lg);
+    object-position: top;
     display: block;
 }
 
@@ -1264,6 +1267,9 @@ strong {
         flex-direction: row;
         text-align: left;
         align-items: center;
+        gap: var(--space-2xl);
+        padding: calc(var(--header-height) + var(--space-xl)) var(--space-lg)
+            var(--space-xl);
     }
 
     .hero-text {
@@ -1272,7 +1278,13 @@ strong {
 
     .hero-image {
         max-width: 340px;
+        max-height: unset;
         flex-shrink: 0;
+    }
+
+    .hero-photo {
+        height: auto;
+        aspect-ratio: 3 / 4;
     }
 
     /* Methoden grid 3 cols on large screens */

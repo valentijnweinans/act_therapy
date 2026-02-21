@@ -74,9 +74,9 @@ var SITE_CONTENT = {
        BEHANDELINGEN — Het tabblad-gedeelte met Voor wie, Methoden en Traject
        ================== */
   behandelingen: {
-    titel: "Hoe kan ik je helpen?",
+    titel: "Behandelingen",
     intro:
-      "Iedereen loopt wel eens vast. Soms helpt het om samen te kijken naar wat er speelt en wat je nodig hebt om weer verder te komen.",
+      "Hoe kan ik je helpen? \n Iedereen loopt wel eens vast.Soms helpt het om samen te kijken naar wat er speelt en wat je nodig hebt om weer verder te komen.",
 
     /* Voor wie — lijst van klachten/situaties */
     voorWie: [
