@@ -469,11 +469,11 @@ function initContactForm() {
         submitBtn.disabled = true;
 
         try {
-            const res = await fetch('MAIL_API_URL/api/v1/contacts', {
+            const res = await fetch('https://vitis-mail-api.fly.dev/api/v1/contacts', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-Api-Key': 'MAIL_API_KEY'
+                    'X-Api-Key': 'b6164c7c8557232f4e25fcd1b800ff0834c86e8a9d350156edaef64834e7aac2'
                 },
                 body: JSON.stringify(data)
             });
