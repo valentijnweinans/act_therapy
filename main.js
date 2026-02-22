@@ -450,7 +450,11 @@ function initContactForm() {
     const form = document.getElementById('contactForm');
     if (!form) return;
 
-    form.addEventListener('submit', (e) => {
+    // Tijdscheck: sla op wanneer het formulier geladen is (milliseconden)
+    const loadedAtField = document.getElementById('formLoadedAt');
+    if (loadedAtField) loadedAtField.value = Date.now();
+
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         const formData = new FormData(form);
@@ -459,25 +463,43 @@ function initContactForm() {
         const contact = window.SITE_CONTENT && window.SITE_CONTENT.contact;
         const successTitel = (contact && contact.successTitel) || 'Bedankt voor je bericht!';
         const successTekst = (contact && contact.successTekst) || 'Ik neem zo snel mogelijk contact met je op.';
+        const errorTekst   = (contact && contact.errorTekst)   || 'Er ging iets mis. Probeer het later opnieuw.';
 
-        // Toon succesbericht (vervang later door echte backend)
-        const wrapper = form.closest('.contact-form-wrapper');
-        wrapper.innerHTML = `
-            <div style="text-align: center; padding: 2rem 0;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
-                     fill="none" stroke="var(--sage)" stroke-width="2" stroke-linecap="round"
-                     stroke-linejoin="round">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                </svg>
-                <h3 style="margin-top: 1rem; color: var(--darkbrown);">${successTitel}</h3>
-                <p style="color: var(--text-medium); margin-top: 0.5rem;">
-                    ${successTekst}
-                </p>
-            </div>
-        `;
+        const submitBtn = form.querySelector('[type="submit"]');
+        submitBtn.disabled = true;
 
-        console.log('Formulier verzonden:', data);
+        try {
+            const res = await fetch('MAIL_API_URL/api/v1/contacts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Api-Key': 'MAIL_API_KEY'
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (res.ok) {
+                const wrapper = form.closest('.contact-form-wrapper');
+                wrapper.innerHTML = `
+                    <div style="text-align: center; padding: 2rem 0;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                             fill="none" stroke="var(--sage)" stroke-width="2" stroke-linecap="round"
+                             stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        <h3 style="margin-top: 1rem; color: var(--darkbrown);">${successTitel}</h3>
+                        <p style="color: var(--text-medium); margin-top: 0.5rem;">${successTekst}</p>
+                    </div>
+                `;
+            } else {
+                submitBtn.disabled = false;
+                alert(errorTekst);
+            }
+        } catch {
+            submitBtn.disabled = false;
+            alert(errorTekst);
+        }
     });
 }
 

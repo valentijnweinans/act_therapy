@@ -362,6 +362,20 @@
                                         rows="4"
                                     ></textarea>
                                 </div>
+                                <div class="form-extra" aria-hidden="true">
+                                    <label for="website">Website</label>
+                                    <input
+                                        type="text"
+                                        id="website"
+                                        name="website"
+                                        tabindex="-1"
+                                        autocomplete="off"
+                                    />
+                                </div>
+
+                                <!-- Tijdscheck: wordt gezet door JS bij laden -->
+                                <input type="hidden" name="form_loaded_at" id="formLoadedAt" />
+
                                 <button
                                     type="submit"
                                     class="btn btn--primary btn--full"

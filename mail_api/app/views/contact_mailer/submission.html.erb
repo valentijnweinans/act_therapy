@@ -1,0 +1,26 @@
+<p>Er is een nieuw contactbericht binnengekomen via <strong><%= @client_name %></strong>.</p>
+
+<table style="border-collapse: collapse; width: 100%; max-width: 560px; font-family: sans-serif; font-size: 15px;">
+  <tr>
+    <td style="padding: 8px 12px; background: #f5f5f5; font-weight: bold; width: 120px;">Naam</td>
+    <td style="padding: 8px 12px; border-bottom: 1px solid #eee;"><%= @form_data[:naam] %></td>
+  </tr>
+  <tr>
+    <td style="padding: 8px 12px; background: #f5f5f5; font-weight: bold;">E-mail</td>
+    <td style="padding: 8px 12px; border-bottom: 1px solid #eee;"><%= @form_data[:email] %></td>
+  </tr>
+  <% if @form_data[:telefoon].present? %>
+  <tr>
+    <td style="padding: 8px 12px; background: #f5f5f5; font-weight: bold;">Telefoon</td>
+    <td style="padding: 8px 12px; border-bottom: 1px solid #eee;"><%= @form_data[:telefoon] %></td>
+  </tr>
+  <% end %>
+  <tr>
+    <td style="padding: 8px 12px; background: #f5f5f5; font-weight: bold; vertical-align: top;">Bericht</td>
+    <td style="padding: 8px 12px; white-space: pre-line;"><%= @form_data[:bericht] %></td>
+  </tr>
+</table>
+
+<p style="margin-top: 24px; color: #888; font-size: 13px;">
+  Je kunt direct antwoorden op deze e-mail — de reply-to is ingesteld op het adres van de afzender.
+</p>

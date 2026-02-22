@@ -1,0 +1,20 @@
+# Registratie van API-clients (websites die de mail-API gebruiken).
+#
+# Voeg per website een blok toe. De API-sleutel en het e-mailadres van de
+# ontvanger worden nooit hardcoded opgeslagen — ze komen uit omgevingsvariabelen.
+#
+# Hoe een nieuwe client toevoegen:
+#   1. Voeg hieronder een blok toe met een unieke naam (snake_case).
+#   2. Stel de twee ENV-variabelen in via `fly secrets set` (of .env lokaal).
+#   3. Deploy opnieuw.
+#
+# Voorbeeld van een tweede client:
+#   mijn_andere_site:
+#     name: "Mijn Andere Site"
+#     api_key_env: "CLIENT_MIJN_ANDERE_SITE_KEY"
+#     recipient_env: "CLIENT_MIJN_ANDERE_SITE_RECIPIENT"
+
+anne_weinans:
+  name: "Anne Weinans Praktijk"
+  api_key_env: "CLIENT_ANNE_WEINANS_KEY"
+  recipient_env: "CLIENT_ANNE_WEINANS_RECIPIENT"

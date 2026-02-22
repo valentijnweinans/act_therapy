@@ -910,6 +910,17 @@ strong {
 }
 
 /* Form */
+/* Verborgen formulierveld — niet aanraken */
+.form-extra {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+}
+
 .contact-form-wrapper {
     background-color: var(--white);
     border-radius: var(--border-radius-lg);

@@ -1,0 +1,12 @@
+Nieuw contactbericht via <%= @client_name %>
+<%= "=" * 40 %>
+
+Naam:     <%= @form_data[:naam] %>
+E-mail:   <%= @form_data[:email] %>
+<% if @form_data[:telefoon].present? %>Telefoon: <%= @form_data[:telefoon] %>
+<% end %>
+Bericht:
+<%= @form_data[:bericht] %>
+
+--
+Je kunt direct antwoorden op deze e-mail.
