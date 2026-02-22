@@ -17,6 +17,6 @@ else
       raise "Ontbrekende ENV-variabele '#{config["recipient_env"]}' voor client '#{id}'"
     end
 
-    hash[api_key] = { name: config["name"], recipient: recipient }
+    hash[api_key] = { name: config["name"], recipient: recipient, confirmation_message: config["confirmation_message"] }
   end
 end.freeze
