@@ -16,7 +16,7 @@ module Api
         end
 
         ContactMailer.submission(contact_params, client[:recipient], client[:name]).deliver_now
-        ContactMailer.confirmation(contact_params, client[:name], client[:confirmation_message]).deliver_now
+        ContactMailer.confirmation(contact_params, client[:name], client[:header_name], client[:confirmation_message]).deliver_now
         render json: { success: true, message: "Bericht verzonden" }
       rescue => e
         Rails.logger.error "Fout bij verzenden e-mail: #{e.message}"

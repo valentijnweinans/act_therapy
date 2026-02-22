@@ -16,6 +16,7 @@
 
 anne_weinans:
   name: "Anne Weinans"
+  header_name: "ACT Therapeut"
   api_key_env: "CLIENT_ANNE_WEINANS_KEY"
   recipient_env: "CLIENT_ANNE_WEINANS_RECIPIENT"
   confirmation_message: "Hartelijk dank voor je bericht. Ik heb het goed ontvangen en neem zo spoedig mogelijk contact met je op, doorgaans binnen twee werkdagen."

@@ -10,9 +10,10 @@ class ContactMailer < ApplicationMailer
     )
   end
 
-  def confirmation(form_data, client_name, message)
+  def confirmation(form_data, client_name, header_name, message)
     @form_data = form_data
     @client_name = client_name
+    @header_name = header_name
     @message = message
 
     mail(
